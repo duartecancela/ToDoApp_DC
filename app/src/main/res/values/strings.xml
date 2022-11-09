@@ -2,4 +2,9 @@
     <string name="app_name">ToDoApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="edit_text_description">Description</string>
+    <string name="edit_text_title">Title</string>
+    <string name="button_add_new_todo">Add new ToDo</string>
+    <string name="text_view_title">Title</string>
+    <string name="text_view_description">Description</string>
 </resources>
