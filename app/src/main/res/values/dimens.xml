@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="marginSmall">8dp</dimen>
+    <dimen name="marginMedium">16dp</dimen>
+    <dimen name="marginFab">24dp</dimen>
+    <dimen name="listItemSpacing">4dp</dimen>
+</resources>

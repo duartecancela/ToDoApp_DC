@@ -15,4 +15,7 @@ abstract class TodoDao {
 
     @Insert
     abstract fun insert(todo: Todo) : Long
+
+    @Query("delete from todo where id = :id")
+    abstract fun delete(id: Int): Int
 }

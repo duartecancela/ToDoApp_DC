@@ -35,7 +35,6 @@ class TodosFragment : Fragment() {
             .todoDao()
             .getAll()
 
-
         adapter.data = todos as MutableList<Todo>
 
         binding.addNewTodo.setOnClickListener {
