@@ -10,12 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.todoapp.databinding.FragmentTodosBinding
 import com.example.todoapp.databinding.TodoItemBinding
 import com.example.todoapp.model.Todo
+import com.example.todoapp.model.TodoDatabase
 
 
 class TodosFragment : Fragment() {
 
     private lateinit var binding: FragmentTodosBinding
-    val adapter = TodosAdapter()
+    private val adapter = TodosAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,10 +29,14 @@ class TodosFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.todoList.adapter = adapter
+        binding.todoList.adapter = this.adapter
 
-        // text add todo
-        adapter.add(Todo("Title 1", "Description 1", false))
+        val todos = TodoDatabase(requireContext())
+            .todoDao()
+            .getAll()
+
+
+        adapter.data = todos as MutableList<Todo>
 
         binding.addNewTodo.setOnClickListener {
             findNavController().navigate(TodosFragmentDirections.actionTodosFragmentToNewTodoFragment())
@@ -55,7 +60,7 @@ class TodosFragment : Fragment() {
     inner class TodosAdapter(todos: List<Todo> = mutableListOf()) :
         RecyclerView.Adapter<TodosViewHolder>() {
 
-        private val data: MutableList<Todo> = mutableListOf()
+        var data: MutableList<Todo> = mutableListOf()
 
         init {
             data.addAll(todos)
