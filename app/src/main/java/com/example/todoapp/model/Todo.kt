@@ -1,3 +1,8 @@
 package com.example.todoapp.model
 
-data class Todo(val id: Long, val title: String, val description: String)
+data class Todo(
+    val title: String,
+    val description: String,
+    val isDone: Boolean
+
+    )
