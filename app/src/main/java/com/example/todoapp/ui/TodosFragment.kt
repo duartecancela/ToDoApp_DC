@@ -48,6 +48,7 @@ class TodosFragment : Fragment() {
             this.todo = todo
             binding.textViewTitle.text = todo.title
             binding.textViewDescription.text = todo.description
+            binding.checkBox.isChecked = todo.isDone
             }
         }
 
